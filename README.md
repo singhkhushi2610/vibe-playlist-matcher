@@ -93,15 +93,6 @@ curl -X POST http://localhost:1212/add \
   -d '{"name":"Perfect","lyrics":"I found a love for me. Romantic love.","genre":"Romantic","artist":"Ed Sheeran"}'
 ```
 
-## Configuration
-
-| Property | Default | Description |
-|----------|---------|-------------|
-| `server.port` | 1212 | Application port |
-| `spring.datasource.url` | jdbc:postgresql://localhost:5433/postgres | PostgreSQL connection |
-| `spring.ai.ollama.base-url` | http://localhost:11434 | Ollama server URL |
-| `DB_PASSWORD` | postgres | Database password (env var) |
-
 ## Project Structure
 
 ```
@@ -113,6 +104,3 @@ src/main/java/com/khushi/vibe_playlist_matcher/
 └── service/         # Playlist service (vector search, ingestion)
 ```
 
-## License
-
-MIT
