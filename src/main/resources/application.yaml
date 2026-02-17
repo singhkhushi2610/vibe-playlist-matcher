@@ -1,0 +1,38 @@
+
+server:
+  port: 1212
+
+spring:
+  application:
+    name: vibe-playlist-matcher
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  ai:
+    model:
+      chat: ollama
+      embedding: ollama
+    ollama:
+      base-url: http://localhost:11434
+      # Run: ollama pull llama3.2 && ollama pull nomic-embed-text
+      init:
+        pull-model-strategy: when_missing
+      chat:
+        options:
+          model: llama3.2
+          temperature: 0.9
+      embedding:
+        options:
+          model: nomic-embed-text
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+
+logging:
+  level:
+    org.springframework.ai:
+      chat.client: DEBUG
